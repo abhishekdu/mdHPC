@@ -132,14 +132,14 @@ Key insight: T=16 consistently achieves ~1.9 IPC vs 3.4 IPC for T=4---roughly 50
 
 ## 6.2 Performance Visualization
 
-![FIGURE 1: Speedup vs. Input Size](figure1.png)
+![FIGURE 1: Speedup vs. Input Size](fig1.jpg)
 **FIGURE 1: Speedup vs. Input Size. Peak speedup of 17.47× at N=1000 (T=16). Severe degradation with problem size: T=4 drops 37%, T=8 drops 55%, T=16 drops 79%. All thread counts stabilize at 2.66--3.62× for N≥8000, indicating memory bandwidth saturation regardless of parallelism**
 
 
-![FIGURE 2: GFLOPs Performance](figure2.png)
+![FIGURE 2: GFLOPs Performance](fig2.jpg)
 **FIGURE 2: GFLOPs Performance with Distinct Color Differentiation. Baseline (brown) stays at 3.6--7.3 GFLOP/s. T=4 (red) achieves 15.4--21.5 GFLOPs. T=8 (bright orange) peaks at 30.7 GFLOPs but drops to 23--25. T=16 (dark green) reaches 63.5 at N=1000 but crashes to 24--26 GFLOPs for N≥5000. Horizontal line marks saturation at ~24--26 GFLOP/s (memory bandwidth ceiling ~50 GB/s). All values clearly labeled without overlap**
 
-![FIGURE 3: Scaling Efficiency](figure3.png)
+![FIGURE 3: Scaling Efficiency](fig3.jpg)
 **FIGURE 3: Scaling Efficiency with Clear Label Separation. Black dashed line at 100% marks perfect linear scaling. T=4 (red) maintains 67--106%, showing excellent efficiency. T=8 (blue) degrades from 98% to 44%. T=16 (purple) collapses from 109% (super-linear) to 23%, indicating severe sublinear scaling. All values offset vertically to ensure no overlap, with larger fonts for clarity**
 
 ![FIGURE 4: IPC Degradation](figure4.png)
