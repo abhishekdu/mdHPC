@@ -5,7 +5,7 @@ Matrix Multiplication Optimization
 ==================================
 ---
 
-**Team: Sushmit Mahato (mcs252102), Abhishek Gupta (mcs252963)**
+## Team: <Susmit Mahato(2025MCS2102), Abhishek Gupta(2025MCS2963)>
 
 # 1. Introduction
 
@@ -86,7 +86,7 @@ Flags: -O3 -march=haswell -mfma -mavx2 -funroll-loops -ffast-math -fopenmp
 
 | N | T=4 | T=8 | T=16 | Avg |
 |---|-----|-----|------|-----|
-| 1000 | 4.23 | 7.87 | 17.47 | 9.86 |
+| 1000 | 3.91 | 7.87 | 15.87 | 9.22 |
 | 2000 | 3.36 | 5.09 | 6.62 | 5.02 |
 | 3000 | 3.24 | 4.61 | 4.90 | 4.25 |
 | 4000 | 3.11 | 4.21 | 4.62 | 3.98 |
@@ -96,13 +96,13 @@ Flags: -O3 -march=haswell -mfma -mavx2 -funroll-loops -ffast-math -fopenmp
 | 8000 | 2.71 | 3.61 | 3.72 | 3.35 |
 | 9000 | 2.66 | 3.52 | 3.62 | 3.27 |
 
-Key insight: Speedup degrades from 17.47× to 3.62× (79% loss for T=16) as problem size increases from 1000 to 9000. This dramatic collapse indicates memory saturation, not compute limitations.
+Key insight: Speedup degrades from 15.87× to 3.62× (77% loss for T=16) as problem size increases from 1000 to 9000. This dramatic collapse indicates memory saturation, not compute limitations.
 
 ## 5.2 GFLOPs Performance
 
 | N | Baseline | T=4 | T=8 | T=16 |
 |---|----------|-----|-----|------|
-| 1000 | 3.6 | 15.4 | 28.6 | 63.5 |
+| 1000 | 3.6 | 15.4 | 28.6 | 57.1 |
 | 2000 | 6.0 | 20.3 | 30.7 | 40.0 |
 | 3000 | 6.5 | 21.1 | 30.0 | 31.9 |
 | 4000 | 6.9 | 21.5 | 29.1 | 32.0 |
@@ -135,14 +135,14 @@ Key insight: T=16 consistently achieves ~1.9 IPC vs 3.4 IPC for T=4---roughly 50
 ## 6.2 Performance Visualization
 
 ![FIGURE 1: Speedup vs. Input Size](fig1.jpg)
-**FIGURE 1: Speedup vs. Input Size. Peak speedup of 17.47× at N=1000 (T=16). Severe degradation with problem size: T=4 drops 37%, T=8 drops 55%, T=16 drops 79%. All thread counts stabilize at 2.66--3.62× for N≥8000, indicating memory bandwidth saturation regardless of parallelism**
+**FIGURE 1: Speedup vs. Input Size. Peak speedup of 15.87× at N=1000 (T=16). Severe degradation with problem size: T=4 drops 37%, T=8 drops 55%, T=16 drops 77%. All thread counts stabilize at 2.66--3.62× for N≥8000, indicating memory bandwidth saturation regardless of parallelism**
 
 
 ![FIGURE 2: GFLOPs Performance](fig2.jpg)
-**FIGURE 2: GFLOPs Performance with Distinct Color Differentiation. Baseline (brown) stays at 3.6--7.3 GFLOP/s. T=4 (red) achieves 15.4--21.5 GFLOPs. T=8 (bright orange) peaks at 30.7 GFLOPs but drops to 23--25. T=16 (dark green) reaches 63.5 at N=1000 but crashes to 24--26 GFLOPs for N≥5000. Horizontal line marks saturation at ~24--26 GFLOP/s (memory bandwidth ceiling ~50 GB/s). All values clearly labeled without overlap**
+**FIGURE 2: GFLOPs Performance. Baseline stays at 3.6–7.3 GFLOP/s. T=4 (red) achieves 14.2–21.5 GFLOPs. T=8 (bright orange) peaks at 30.7 GFLOPs. T=16 (dark green) reaches 57.1 GFLOP/s at N=1000 (corrected from 63.5) but crashes to 24–26 for N≥5000. Horizontal line marks saturation at ~24–26 GFLOP/s**
 
 ![FIGURE 3: Scaling Efficiency](fig3.jpg)
-**FIGURE 3: Scaling Efficiency with Clear Label Separation. Black dashed line at 100% marks perfect linear scaling. T=4 (red) maintains 67--106%, showing excellent efficiency. T=8 (blue) degrades from 98% to 44%. T=16 (purple) collapses from 109% (super-linear) to 23%, indicating severe sublinear scaling. All values offset vertically to ensure no overlap, with larger fonts for clarity**
+**FIGURE 3: Scaling Efficiency with Clear Label Separation. Black dashed line at 100% marks perfect linear scaling.  Black dashed line at 100% marks perfect scaling. T=4 (red) achieves 67–98%, nearly perfect scaling. T=8 (blue) degrades from 98% to 44%. T=16 (purple) shows excellent efficiency at N=1000 (99%) but collapses to 23% by N=9000., indicating severe sublinear scaling.**
 
 ![FIGURE 4: IPC Degradation](figure4.png)
 **FIGURE 4: IPC Degradation with Non-Overlapping Labels. Red bars (T=4) cluster at 3.2--3.8, near theoretical 4.0 maximum. Blue bars (T=8) achieve 3.0--3.5. Orange/yellow bars (T=16) remain flat at ~1.9, representing 45% degradation. Horizontal line at 4.0 IPC marks theoretical CPU capability. All values clearly labeled in distinct positions---T=4 centered, T=8 top-right, T=16 top-left---ensuring zero overlap and maximum readability**
@@ -190,11 +190,11 @@ Key insight: At N=9000 with T=16, CPUs are only 12.58% utilized---meaning cores 
 
 At small matrix sizes (N=1000), the improvements were dramatic, showing the power of optimization:
 
-4 cores: 4.23× faster (baseline: 3.6 GFLOPs → optimized: 15.4 GFLOPs)
+4 cores: 3.91× faster (baseline: 3.6 GFLOPs → optimized: 15.4 GFLOPs)
 
 8 cores: 7.87× faster (baseline: 3.6 GFLOPs → optimized: 28.6 GFLOPs)
 
-16 cores: 17.47× faster (baseline: 3.6 GFLOPs → optimized: 63.5 GFLOPs)
+16 cores: 15.87× faster (baseline: 3.6 GFLOPs → optimized: 57.1 GFLOPs)
 
 The speedup scaling was nearly perfect---doubling cores roughly doubled performance. But as matrices grew larger, something unexpected happened. At N=9000:
 
@@ -202,13 +202,13 @@ The speedup scaling was nearly perfect---doubling cores roughly doubled performa
 
 8 threads: 3.52× faster (55% drop from N=1000) --- baseline: 7.3 GFLOPs → optimized: 25.8 GFLOPs
 
-16 threads: 3.62× faster (79% drop from N=1000!) --- baseline: 7.3 GFLOPs → optimized: 26.5 GFLOPs
+16 threads: 3.62× faster (77% drop from N=1000!) --- baseline: 7.3 GFLOPs → optimized: 26.5 GFLOPs
 
 Most strikingly, using 16 threads gave us barely 3% more speedup than 8 threads (25.8 vs 26.5 GFLOPs). Something was severely limiting us---and it wasn't the processor's compute power. We found using perf stats of L1 miss rates, reduced IPC that the threads are competing for the same memory bandwidth and cache resources(went from cache bound to memory bound), creating contention and affecting our performance.
 
 ## 9.1 Key Findings
 
-- Peak speedup of 17.47× achieved at N=1000, T=16
+- Peak speedup of 15.87× achieved at N=1000, T=16
 - Speedup collapses to 3.62× at N=9000 due to memory bandwidth saturation
 - IPC degrades 45% from T=4 to T=16, indicating memory stalls dominate
 - LLC miss rates exceed 75% for N≥3000, confirming DRAM-bound regime
@@ -220,3 +220,20 @@ Most strikingly, using 16 threads gave us barely 3% more speedup than 8 threads 
 1. For N ≤ 4000: Use T=16 where scaling efficiency exceeds 40%
 2. For N ≥ 5000: Use T=4--8 where memory bandwidth is better-utilized
 3. For very large N (>10,000): Consider GPU acceleration or mixed-precision arithmetic
+
+## 10. Reproducibility
+How to reproduce runs 
+### Environment 
+Linux OS (Ubuntu 20.04 recommended) 
+g++ compiler with C++17, AVX2, FMA, and OpenMP support 
+Python 3 with numpy and plotting libraries for analysis 
+perf for hardware performance counters if used 
+### Build Instructions 
+simply run: 
+make Makefile 
+Running the Benchmark 
+Execute with matrix size and number of threads as arguments: 
+./gemm_optimized <matrix_size> <num_threads> 
+Performance Profiling 
+Collect counters with perf
+   
