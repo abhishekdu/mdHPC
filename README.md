@@ -2,6 +2,9 @@
 Matrix Multiplication Optimization
 ==================================
 ---
+<div style="text-align: center;">
+  <h1>Matrix Multiplication Optimization</h1>
+</div>
 
 # 1. Introduction
 
