@@ -70,11 +70,10 @@ Flags: -O3 -march=haswell -mfma -mavx2 -funroll-loops -ffast-math -fopenmp
 
 ## 4.6 Diagrams
 
-[chart:4]
-![Alt text describing the chart](chart4.png)
-![image info](./pictures/chart4.png)
+![Before Optimization approach](chart4.png)
 
-[chart:6]
+
+![After Optimization approach](chart5.png)
 
 # 5. Performance Results
 
