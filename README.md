@@ -5,6 +5,8 @@ Matrix Multiplication Optimization
 ==================================
 ---
 
+## Team: <Sushmit Mahato, Abhishek Gupta>
+
 # 1. Introduction
 
 Matrix-matrix multiplication (GEMM) represents one of the most fundamental computational kernels in scientific computing, linear algebra, and machine learning applications. The operation computes the product C = A × B where A, B, and C are N×N matrices of double-precision floating-point values. Computationally, it's floating-point operations on just data elements. This makes GEMM an interesting challenge: the ratio of computation to data is high enough that smart optimization can help, but not so high that computation completely dominates
