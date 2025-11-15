@@ -129,29 +129,25 @@ Key insight: T=16 consistently achieves ~1.9 IPC vs 3.4 IPC for T=4---roughly 50
 
 ## 6.2 Performance Visualization
 
+![FIGURE 1: Speedup vs. Input Size](figure1.png)
 **FIGURE 1: Speedup vs. Input Size. Peak speedup of 17.47× at N=1000 (T=16). Severe degradation with problem size: T=4 drops 37%, T=8 drops 55%, T=16 drops 79%. All thread counts stabilize at 2.66--3.62× for N≥8000, indicating memory bandwidth saturation regardless of parallelism**
 
-[chart:4]
 
+![FIGURE 2: GFLOPs Performance](figure2.png)
 **FIGURE 2: GFLOPs Performance with Distinct Color Differentiation. Baseline (brown) stays at 3.6--7.3 GFLOP/s. T=4 (red) achieves 15.4--21.5 GFLOPs. T=8 (bright orange) peaks at 30.7 GFLOPs but drops to 23--25. T=16 (dark green) reaches 63.5 at N=1000 but crashes to 24--26 GFLOPs for N≥5000. Horizontal line marks saturation at ~24--26 GFLOP/s (memory bandwidth ceiling ~50 GB/s). All values clearly labeled without overlap**
 
-[chart:5]
-
+![FIGURE 3: Scaling Efficiency](figure3.png)
 **FIGURE 3: Scaling Efficiency with Clear Label Separation. Black dashed line at 100% marks perfect linear scaling. T=4 (red) maintains 67--106%, showing excellent efficiency. T=8 (blue) degrades from 98% to 44%. T=16 (purple) collapses from 109% (super-linear) to 23%, indicating severe sublinear scaling. All values offset vertically to ensure no overlap, with larger fonts for clarity**
 
-[chart:6]
-
+![FIGURE 4: IPC Degradation](figure4.png)
 **FIGURE 4: IPC Degradation with Non-Overlapping Labels. Red bars (T=4) cluster at 3.2--3.8, near theoretical 4.0 maximum. Blue bars (T=8) achieve 3.0--3.5. Orange/yellow bars (T=16) remain flat at ~1.9, representing 45% degradation. Horizontal line at 4.0 IPC marks theoretical CPU capability. All values clearly labeled in distinct positions---T=4 centered, T=8 top-right, T=16 top-left---ensuring zero overlap and maximum readability**
 
-[chart:7]
-
+![FIGURE 5: Cache Miss Rates](figure5.png)
 **FIGURE 5: Cache Miss Rates with Phase Transition Highlighted. Light-colored L1 bars cluster at 10--15%, demonstrating effective cache blocking. Dark-colored LLC bars show critical transition: <30% for N≤2000 (cache-resident), jumping to 65--85% for N≥3000 (DRAM-bound). This phase transition at N=3000 directly correlates with speedup collapse, confirming LLC capacity exceeded. All values clearly positioned to prevent overlap**
 
-[chart:8]
-
+![FIGURE 6: CPU Utilization](figure6.png)
 **FIGURE 6: CPU Utilization with Clear Label Positioning. T=4 (red) remains at 3--3.8%. T=8 (blue) reaches 5--7%. T=16 (orange) plateaus at 8--14%. Critical insight: T=16 at N=9000 achieves only 12.58% utilization, implying 87% of cycles involve memory stalls. All values clearly labeled in distinct positions (T=4 inside bar, T=8 top-right offset, T=16 top-left offset) ensuring complete readability**
 
-[chart:9]
 
 # 7. LLC Cache Miss Rate Analysis
 
