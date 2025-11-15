@@ -5,7 +5,7 @@ Matrix Multiplication Optimization
 ==================================
 ---
 
-## Team: <Susmit Mahato(2025MCS2102), Abhishek Gupta(2025MCS2963)>
+** Team: <Susmit Mahato(2025MCS2102), Abhishek Gupta(2025MCS2963)>**
 
 # 1. Introduction
 
