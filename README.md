@@ -1,5 +1,5 @@
 ---
-title: Matrix Multiplication Optimization
+Matrix Multiplication Optimization
 ---
 
 # 1. Introduction
