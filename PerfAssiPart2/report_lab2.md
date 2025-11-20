@@ -1,4 +1,4 @@
-# Smith-Waterman Algorithm Optimization: Architecture-Aware Performance Enhancement
+# Smith-Waterman Algorithm Optimization
 
 **Team:** \[2025MCS2102, 2025MCS2963]
 
