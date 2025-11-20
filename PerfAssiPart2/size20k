@@ -1,0 +1,32 @@
+perf stat -ddd  ./optimized/sw_opt 20000
+Sequence length: 20000
+Smith-Waterman blocked score: 9140
+Execution time: 0.457779 seconds
+
+ Performance counter stats for './optimized/sw_opt 20000':
+
+            459.20 msec task-clock                       #    0.998 CPUs utilized             
+                 3      context-switches                 #    6.533 /sec                      
+                 0      cpu-migrations                   #    0.000 /sec                      
+               112      page-faults                      #  243.901 /sec                      
+     2,023,027,314      cycles                           #    4.406 GHz                         (29.46%)
+     7,071,986,729      instructions                     #    3.50  insn per cycle              (37.30%)
+       231,173,731      branches                         #  503.423 M/sec                       (37.30%)
+         6,588,275      branch-misses                    #    2.85% of all branches             (38.11%)
+     1,483,263,785      L1-dcache-loads                  #    3.230 G/sec                       (38.98%)
+           262,313      L1-dcache-load-misses            #    0.02% of all L1-dcache accesses   (39.19%)
+             3,448      LLC-loads                        #    7.509 K/sec                       (31.35%)
+             1,196      LLC-load-misses                  #   34.69% of all LL-cache accesses    (31.35%)
+   <not supported>      L1-icache-loads                                                       
+            84,756      L1-icache-load-misses                                                   (31.35%)
+     1,535,563,994      dTLB-loads                       #    3.344 G/sec                       (31.35%)
+               539      dTLB-load-misses                 #    0.00% of all dTLB cache accesses  (31.35%)
+             1,653      iTLB-loads                       #    3.600 K/sec                       (30.54%)
+               441      iTLB-load-misses                 #   26.68% of all iTLB cache accesses  (29.67%)
+   <not supported>      L1-dcache-prefetches                                                  
+   <not supported>      L1-dcache-prefetch-misses                                             
+
+       0.459975573 seconds time elapsed
+
+       0.460109000 seconds user
+       0.000000000 seconds sys
