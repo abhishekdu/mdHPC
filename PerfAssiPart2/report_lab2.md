@@ -1,9 +1,6 @@
 # Smith-Waterman Algorithm Optimization: Architecture-Aware Performance Enhancement
 
-**Course:** Computer Architecture Lab  
-**Problem:** Smith-Waterman Local Sequence Alignment  
-**Date:** November 20, 2025  
-**Authors:** [Your Names and Entry Numbers]
+**Team:** \[2025MCS1120, 2025MCS2963]
 
 ---
 
