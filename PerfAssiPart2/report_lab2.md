@@ -294,6 +294,9 @@ The runtime performance of the optimized Smith-Waterman implementation was evalu
 | 70000 	| 32113 	| 5.276121      	| 1     	| 4.44       	| 2.34E+10 	| 8.74E+10     	| 3.73 	| 2.87E+09 	| 82645942      	| 2.88          	| 1.85E+10   	| 3068825     	| 0.02        	| 26924     	| 3729       	| 13.85      	| 2031        	| 748         	| 303         	|
 |       	|       	|               	|       	|            	|          	|              	|      	|          	|               	|               	|            	|             	|             	|           	|            	|            	|             	|             	|             	|
 
+
+![Execution Time](pic2.jpg)
+
 ### Performance Scaling Analysis
 
 **Small Sequences (N ≤ 10,000):**
