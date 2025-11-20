@@ -189,26 +189,6 @@ Our optimization approach follows a progressive methodology, focusing on the mos
 
 ## 4. Experimental Methodology
 
-### Hardware Platform
-
-**System Specifications:**
-- **Processor:** [INSERT CPU MODEL AND SPECS]
-- **Core Count:** [INSERT PHYSICAL/LOGICAL CORES]
-- **Operating Frequency:** ~4.4 GHz (sustained during benchmarks)
-- **Cache Hierarchy:**
-  - L1 Data Cache: [INSERT SIZE, typically 32KB] per core
-  - L2 Cache: [INSERT SIZE, typically 256KB] per core
-  - L3 Cache (LLC): [INSERT SIZE, typically 8-12MB] shared
-- **Memory:** [INSERT RAM SIZE AND TYPE]
-- **SIMD Support:** SSE4.2, AVX2
-
-### Software Environment
-
-- **Operating System:** [INSERT OS AND VERSION, e.g., Ubuntu 22.04 LTS]
-- **Compiler:** GCC [VERSION]
-- **Compilation Flags:** `-O3 -march=native -funroll-loops`
-- **Performance Tools:** `perf stat` (Linux performance counters)
-
 ### Optimization Implementation Details
 
 **Block Size Selection: 256**
@@ -554,15 +534,6 @@ All optimized implementations verified against baseline:
 
 ### Build Instructions
 
-**Prerequisites:**
-```bash
-# GCC compiler
-gcc --version  # >= 7.0 recommended
-
-# Performance tools (optional)
-sudo apt-get install linux-tools-common linux-tools-generic
-```
-
 **Compilation:**
 ```bash
 # Baseline C (no optimization)
@@ -574,14 +545,8 @@ gcc -O3 -march=native -funroll-loops sw_opt.c -o sw_opt
 
 ### Execution Instructions
 
-**Run Baseline:**
-```bash
-./sw_baseline 10000
-```
-
-**Run Optimized:**
-```bash
-./sw_opt 10000
+**Run :**
+```make run
 ```
 
 ### Performance Profiling
