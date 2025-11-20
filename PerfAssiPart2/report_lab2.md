@@ -277,6 +277,10 @@ The runtime performance of the optimized Smith-Waterman implementation was evalu
 
 ![Execution Time](pic2.jpg)
 
+![Branch Miss](pic1.jpg)
+
+![Cycles](pic3.jpg)
+
 ### Performance Scaling Analysis
 
 **Small Sequences (N ≤ 10,000):**
