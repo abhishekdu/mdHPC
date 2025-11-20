@@ -180,8 +180,8 @@ Our optimization approach follows a progressive methodology, focusing on the mos
 
 ### Techniques Attempted But Not Used
 
-1. **AVX2 SIMD Vectorization:** Attempted but abandoned - data dependencies and shuffle overhead negated benefits
-2. **OpenMP Multi-threading:** Attempted but abandoned - wavefront dependencies caused synchronization overhead and correctness issues
+1. **AVX2 SIMD Vectorization:** Attempted but got worse results in terms of elapsed time - data dependencies and shuffle overhead negated benefits
+2. **OpenMP Multi-threading:** Attempted but got worse results in time or either we were getting wrong score for faster implementation - wavefront dependencies caused synchronization overhead and correctness issues
 
 **Rationale:** The fundamental data dependencies in Smith-Waterman (each cell depends on three neighbors) make both SIMD and threading extremely challenging. Empirical testing showed that cache optimization and compiler-level optimizations were sufficient to achieve excellent single-threaded performance.
 
@@ -257,9 +257,9 @@ The runtime performance of the optimized Smith-Waterman implementation was evalu
 | 20,000 | 0.4577 | 5.0847 | 11.10x | N/A (Killed) |
 | 30,000 | 0.9981 | 11.0027 | 11.02x | N/A (Killed) |
 | 40,000 | 1.8954 | 30.5130 | 16.09x | N/A (Killed) |
-| 50,000 | 2.7118 | Killed | Infinite* | N/A |
-| 60,000 | 3.9021 | Killed | Infinite* | N/A |
-| 70,000 | 5.2761 | Killed | Infinite* | N/A |
+| 50,000 | 2.7118 | Killed | N/A | N/A |
+| 60,000 | 3.9021 | Killed | N/A | N/A |
+| 70,000 | 5.2761 | Killed | N/A | N/A |
 
 **Note:** "Infinite*" indicates baseline did not complete (killed due to time/memory constraints), while optimized version successfully completed.
 
@@ -276,10 +276,6 @@ The runtime performance of the optimized Smith-Waterman implementation was evalu
 
 
 ![Execution Time](pic2.jpg)
-
-![Branch Miss](pic1.jpg)
-
-![Cycles](pic3.jpg)
 
 ### Performance Scaling Analysis
 
