@@ -550,6 +550,7 @@ gcc -O3 -march=native -funroll-loops sw_opt.c -o sw_opt
 ### Execution Instructions
 
 **Run :**
+
 ```make run
 ```
 ### Performance Profiling
